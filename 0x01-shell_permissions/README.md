@@ -13,3 +13,4 @@
 
 I12-directory_permissions creates a directory called my_dir with permissions 751 in the working directory.
 13-change_group changes the group owner to school for the file hello.
+101-symbolic_link_permissions changes the owner and the group owner of _hello to vincent and staff respectively.
