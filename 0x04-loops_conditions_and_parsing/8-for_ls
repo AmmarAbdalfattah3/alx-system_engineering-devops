@@ -3,7 +3,7 @@
 #Displays in a list format.
 #Displays Where only the part of the name,
 #after the first dash is displayed.
-for index in *
-do
-    echo "$index" | cut -d'-' -f2
+ls=$(ls)
+for n in $ls; do
+  echo "$n" | cut -d '-' -f2
 done
