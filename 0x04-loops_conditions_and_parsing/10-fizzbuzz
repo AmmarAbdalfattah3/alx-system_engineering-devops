@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#Displays numbers from 1 to 100.
+#Displays FizzBuzz when the number is a multiple of 3 and 5
+#Displays Fizz when the number is multiple of 3
+#Displays Buzz when the number is a multiple of 5
+#Otherwise, displays the number
+#Displays in a list format
+
+index="1"
+while [ $index -le 100 ]
+do
+    if [ $((index % 3)) == 0 ] && [ $((index % 5)) == 0 ]
+	then echo "FizzBuzz"
+    elif [ $((index % 3)) == 0 ]
+	then echo "Fizz"
+    elif [ $((index % 5)) == 0 ]
+	then echo "Buzz"
+    else
+	echo $index
+    fi
+    index=$((index+1))
+done
