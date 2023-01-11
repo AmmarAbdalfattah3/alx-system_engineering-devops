@@ -1,7 +1,5 @@
 #a manifest that executes a command
-exec { 'pkill':
-	command => 'pkill killmenow'
-	provider => 'bash'
 
-
+exec { 'puppet-lint':
+  command => '/usr/bin/apt-get -y install puppet-lint -v 2.5.0',
 }
