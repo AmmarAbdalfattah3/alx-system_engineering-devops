@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
 #make changes to our configuration file using puppet
-
 file_line { 'identify file':
 	ensure => 'present',
 	path => '/etc/ssh/ssh_config',
