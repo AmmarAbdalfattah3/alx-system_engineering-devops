@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#connect to a server with the key stored in ~/.ssh/school as the user ubuntu
+ssh -i ~/.ssh/school ubuntu@"54.157.146.224"
