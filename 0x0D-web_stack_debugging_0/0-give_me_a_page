@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 #fix a docker container to run Apache and return 'Hello Holberton'
+
 echo "ServerName LocalHost" >> /etc/apache2.conf
 service apache2 start
