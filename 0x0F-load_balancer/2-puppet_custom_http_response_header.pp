@@ -2,7 +2,7 @@
 exec { 'automate with puppet':
   command  => 'apt-get -y update;
   sudo apt-get -y install nginx;
-  sed -i "/default_server;$/a add_header X-Served-By \$hostname;" /etc/nginx/sites-available/default;
+  sed -i "/root /var/www/html;/a add_header X-Served-By \$hostname;" /etc/nginx/sites-available/default;
   service nginx restart',
   provider => shell,
 }
