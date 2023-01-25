@@ -36,11 +36,12 @@ frontend secure-frontend
 	bind *:443 ssl crt /etc/ssl/certs/www.dev-space.tech.pem
 	http-request set-header X-Forwarded-Proto https
 	default_backend web-backend
+frontend web-frontend                                                                                                       
+        bind *:80                                                                                                           
+        http-request set-header X-Forwarded-Proto http                                                                      
+        redirect scheme https code 301 if !{ ssl_fc }                                                                       
+        default_backend web-backend 
 backend web-backend
         balance roundrobin
         server 67118-web-01 54.157.146.224:80 check
         server 67011-web-02 54.87.209.193:80 check
-frontend web-frontend
-        bind *:80
-        http-request set-header X-Forwarded-Proto http
-        default_backend web-backend
