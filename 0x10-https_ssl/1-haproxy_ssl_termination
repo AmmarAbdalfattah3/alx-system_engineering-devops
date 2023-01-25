@@ -38,7 +38,7 @@ frontend web-frontend
         redirect scheme https code 301 if !{ ssl_fc }
         default_backend web-backend 
 frontend secure-frontend
-	bind *:443 ssl crt /etc/ssl/certs/www.dev-space.tech.pem
+	bind *:443 ssl crt /etc/letsencrypt/live/www.dev-space.tech/fullchain.pem
 	http-request set-header X-Forwarded-Proto https
 	default_backend web-backend
 backend web-backend

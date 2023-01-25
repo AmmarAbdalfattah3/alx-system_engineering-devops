@@ -33,7 +33,7 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 frontend secure-frontend
-	bind *:443 ssl crt /etc/ssl/certs/www.dev-space.tech.pem
+	bind *:443 ssl crt /etc/letsencrypt/live/www.dev-space.tech/fullchain.pem
 	http-request set-header X-Forwarded-Proto https
 	default_backend web-backend
 frontend web-frontend                                                                                                       
