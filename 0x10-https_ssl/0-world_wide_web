@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #Bash script configures your domain zone
-dns_ifo()
+dns_info()
 {
     record=$(dig "$2"."$1" | awk '/ANSWER SECTION:/{getline; print $4}')
     domain_ip=$(dig "$2"."$1" | awk '/ANSWER SECTION:/{getline; print $5}')
