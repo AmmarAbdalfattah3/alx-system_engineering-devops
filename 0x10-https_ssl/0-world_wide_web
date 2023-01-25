@@ -2,7 +2,7 @@
 #Bash script configures your domain zone
 dns_ifo()
 {
-    record=$(dig "$2"."$1" | '/ANSWER SECTION:/{getline; print $4}')
+    record=$(dig "$2"."$1" | awk '/ANSWER SECTION:/{getline; print $4}')
     domain_ip=$(dig "$2"."$1" | awk '/ANSWER SECTION:/{getline; print $5}')
     echo "The subdomain $2 is a $record record and points to $domain_ip"
 }
