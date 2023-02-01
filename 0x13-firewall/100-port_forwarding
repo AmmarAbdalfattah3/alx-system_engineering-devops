@@ -2,7 +2,8 @@
 # rules.before
 #
 # Rules that should be run before the ufw command line added rules. Custom
-# rules should be added to one of these chains:#   ufw-before-input
+# rules should be added to one of these chains:
+#   ufw-before-input
 #   ufw-before-output
 #   ufw-before-forward
 #
@@ -18,6 +19,7 @@ COMMIT
 :ufw-before-forward - [0:0]
 :ufw-not-local - [0:0]
 # End required lines
+
 
 # allow all on loopback
 -A ufw-before-input -i lo -j ACCEPT
@@ -38,8 +40,14 @@ COMMIT
 -A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT
 -A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT
 
+# ok icmp code for FORWARD
+-A ufw-before-forward -p icmp --icmp-type destination-unreachable -j ACCEPT
+-A ufw-before-forward -p icmp --icmp-type time-exceeded -j ACCEPT
+-A ufw-before-forward -p icmp --icmp-type parameter-problem -j ACCEPT
+-A ufw-before-forward -p icmp --icmp-type echo-request -j ACCEPT
+
 # allow dhcp client to work
--A ufw-before-input -p udp --sport 67 --dport 68 -j ACCEPT 
+-A ufw-before-input -p udp --sport 67 --dport 68 -j ACCEPT
 
 #
 # ufw-not-local
@@ -49,7 +57,7 @@ COMMIT
 # if LOCAL, RETURN
 -A ufw-not-local -m addrtype --dst-type LOCAL -j RETURN
 
- if MULTICAST, RETURN
+# if MULTICAST, RETURN
 -A ufw-not-local -m addrtype --dst-type MULTICAST -j RETURN
 
 # if BROADCAST, RETURN
