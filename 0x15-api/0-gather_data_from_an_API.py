@@ -8,7 +8,6 @@ import sys
 import requests
 
 api = 'https://jsonplaceholder.typicode.com'
-
 if __name__ == '__main__':
     employ_id = sys.argv[1]
     employ_info = requests.get('{}/users/{}'.format(api, employ_id))
