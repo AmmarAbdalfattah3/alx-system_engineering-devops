@@ -16,10 +16,10 @@ if __name__ == '__main__':
     todos = requests.get('{}/todos?userId={}'.format(api, employ_id))
     todos = todos.json()
     comp_todos = []
-    for todo in todos:
-        if todo['completed'] is True:
-            comp_todos.append(todo)
+    for item in todos:
+        if item['completed'] is True:
+            comp_todos.append(item)
     print("Employee {} is done with tasks({}/{}):".format(employ_info['name'],
           len(comp_todos), len(todos)))
-    for todo in comp_todos:
-        print("\t {}".format(todo['title']))
+    for item in comp_todos:
+        print("\t {}".format(item['title']))
