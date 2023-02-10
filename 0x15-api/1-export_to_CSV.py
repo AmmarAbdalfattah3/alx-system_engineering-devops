@@ -21,5 +21,5 @@ if __name__ == '__main__':
         export = csv.writer(csv_file, delimiter=',',
                             quotechar='"', quoting=csv.QUOTE_ALL)
         for row in todos:
-            export.writerow((row['userId'], user_info['username'],
+            export.writerow((row['userId'], employ_info['username'],
                              row['completed'], row['title']))
