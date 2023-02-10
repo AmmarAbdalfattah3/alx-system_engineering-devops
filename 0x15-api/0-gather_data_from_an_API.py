@@ -4,8 +4,8 @@
 """
 
 
-import sys
 import requests
+import sys
 
 api = 'https://jsonplaceholder.typicode.com'
 
