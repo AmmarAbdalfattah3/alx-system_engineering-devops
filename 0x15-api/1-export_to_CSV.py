@@ -20,6 +20,6 @@ if __name__ == '__main__':
     with open(file_name, mode="w") as csv_file:
         export = csv.writer(csv_file, delimiter=',',
                             quotechar='"', quoting=csv.QUOTE_ALL)
-        for row in todos:
-            export.writerow((row['userId'], user_info['username'],
-                             row['completed'], row['title']))
+        for todo in todos:
+            export.writerow((todo['userId'], user_info['username'],
+                             todo['completed'], todo['title']))
