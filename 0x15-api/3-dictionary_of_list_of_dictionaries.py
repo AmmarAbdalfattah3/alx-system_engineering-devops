@@ -22,8 +22,8 @@ if __name__ == '__main__':
         user_todos = []
         for task in todos:
             tasks = {'task': task.get('title'),
-                    'completed': task.get('completed'),
-                    'username': employ_info.get('name')}
+                     'comipleted': task.get('completed'),
+                     'username': employ_info.get('name')}
             user_todos.append(tasks)
         all_tasks[str(employ_id)] = user_todos
     with open(file_name, mode="w") as json_file:
