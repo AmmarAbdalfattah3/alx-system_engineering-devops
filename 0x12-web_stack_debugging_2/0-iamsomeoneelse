@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-#Using the 'whoami command
-sudo su "$1" -s /bin/bash -c 'whoami'
