@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-#Bash script that configures a new Ubuntu machine
-sudo apt-get update
-sudo apt-get -y install nginx
-sudo service nginx start
-echo "Hello World!" > /var/www/html/index.html
-sudo nginx -s reload
