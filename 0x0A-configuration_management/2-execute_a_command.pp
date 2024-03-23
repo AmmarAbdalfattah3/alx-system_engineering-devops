@@ -1,6 +1,6 @@
 #a manifest that executes a command
 
-exec {'pkill':
+exec { 'pkill':
   command  => 'pkill killmenow',
   provider => 'shell',
 }
