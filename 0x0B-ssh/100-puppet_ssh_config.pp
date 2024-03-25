@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 file_line { 'identify file':
   ensure  => 'present',
   path    => '/etc/ssh/ssh_config',
