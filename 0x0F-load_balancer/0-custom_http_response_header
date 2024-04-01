@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+##This Bash script configures your Nginx server to have a custom 404 page
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
+sudo sed -i "22 i \	add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
+sudo service nginx restart
