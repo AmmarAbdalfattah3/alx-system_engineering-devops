@@ -30,5 +30,5 @@ server {
 }"
 
 echo "$response_header_config" | sudo tee /etc/nginx/sites-available/default >/dev/null
-sudo service nginx restart
+sudo systemctl restart nginx
 sudo service nginx reload
