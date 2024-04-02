@@ -3,5 +3,32 @@
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo service nginx start
-sudo sed -i "22 i \	add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
+response_header_config="\
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+
+    add_header X-Served-By \$hostname;
+
+    index index.html index.htm index.nginx-debian.html;
+    server_name _;
+
+    location / {
+        try_files \$uri \$uri/ =404;
+    }
+
+    error_page 404 /error_404.html;
+    location /not_found.html {
+        internal;
+    }
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+}"
+
+echo "$response_header_config" | sudo tee /etc/nginx/sites-available/default >/dev/null
 sudo service nginx restart
+sudo service nginx reload
