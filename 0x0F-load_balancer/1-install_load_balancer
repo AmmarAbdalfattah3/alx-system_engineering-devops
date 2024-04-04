@@ -9,8 +9,8 @@ echo "ENABLED=1" >> /etc/default/haproxy
 balancer=\
 "backend web-backend
         balance roundrobin
-        server 67118-web-01 54.157.146.224:80 check
-        server 67011-web-02 54.87.209.193:80 check
+        server 67118-web-01 100.25.180.87:80 check
+        server 67011-web-02 18.209.225.78:80 check
 frontend web-frontend
         bind *:80
         mode http
