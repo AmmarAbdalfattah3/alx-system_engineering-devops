@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#Bash script configures your domain zone
+dns_info()
+{
+    record_type=$(dig "$2"."$1" | awk '/ANSWER SECTION:/{getline; print $4}')
+    domain_ip=$(dig "$2"."$1" | awk '/ANSWER SECTION:/{getline; print $5}')
+    echo "The subdomain $2 is a $record_type record and points to $domain_ip"
+}
+
+if [ $# -eq 1 ]
+then
+    for i in "www" "lb-01" "web-01" "web-02"
+    do
+        dns_info "$1" "$i"
+    done
+else
+    dns_info "$1" "$2"
+fi
