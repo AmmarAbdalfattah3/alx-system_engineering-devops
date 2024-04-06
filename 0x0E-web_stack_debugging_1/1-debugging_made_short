@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 #This Bash script contains the minimum number of commands to automate my fix
-apt-get update
-apt-get install nginx
 sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
-sudo service nginx restart
 echo "" > /run/nginx.pid
+service nginx restart
