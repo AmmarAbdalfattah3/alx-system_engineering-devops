@@ -2,4 +2,3 @@
 #This Bash script contains the minimum number of commands to automate my fix
 sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
 echo "" > /run/nginx.pid
-service nginx restart
