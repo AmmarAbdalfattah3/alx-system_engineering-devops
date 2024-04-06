@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 #This Bash script contains the minimum number of commands to automate my fix
 echo "" > /run/nginx.pid
+service nginx status
