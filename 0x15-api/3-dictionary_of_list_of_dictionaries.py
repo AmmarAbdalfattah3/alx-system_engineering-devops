@@ -12,7 +12,7 @@ api = 'https://jsonplaceholder.typicode.com'
 
 if __name__ == '__main__':
     file_name = 'todo_all_employees.json'
-    employ_info = requests.get('{}/users/{}'.format(api))
+    employ_info = requests.get(f'{api}/users')
     employ_info = employ_info.json()
     all_tasks = {}
     for user in employ_info:
