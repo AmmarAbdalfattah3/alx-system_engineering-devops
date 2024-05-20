@@ -3,14 +3,13 @@
    Export data in the CSV format
 """
 
-
 import csv
 import requests
 import sys
 
-api = 'https://jsonplaceholder.typicode.com'
 
 if __name__ == '__main__':
+    api = 'https://jsonplaceholder.typicode.com'
     employ_id = sys.argv[1]
     file_name = '{}.csv'.format(employ_id)
     employ_info = requests.get('{}/users/{}'.format(api, employ_id))
