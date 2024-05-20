@@ -16,7 +16,7 @@ if __name__ == '__main__':
     employ_info = employ_info.json()
     all_tasks = {}
     for user in employ_info:
-        empploy_id = user['id']
+        employ_id = user['id']
         todos = requests.get('{}/todos?userId={}'.format(api, employ_id))
         todos = todos.json()
         user_todos = []
