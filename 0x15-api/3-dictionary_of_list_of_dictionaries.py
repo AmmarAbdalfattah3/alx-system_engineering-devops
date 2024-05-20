@@ -22,7 +22,7 @@ if __name__ == '__main__':
         user_todos = []
         for task in todos:
             tasks = {'task': task.get('title'),
-                     'comipleted': task.get('completed'),
+                     'completed': task.get('completed'),
                      'username': employ_info.get('username')}
             user_todos.append(tasks)
         all_tasks[str(employ_id)] = user_todos
